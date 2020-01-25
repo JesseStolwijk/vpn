@@ -39,3 +39,5 @@ services:
     volumes:
       - ./openvpn-data/conf:/etc/openvpn
     restart: always
+    links:
+      - "pihole"
