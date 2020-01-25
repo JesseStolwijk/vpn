@@ -13,7 +13,7 @@ services:
       - "443:443/tcp"
     environment:
       TZ: "Etc/GMT"
-      WEBPASSWORD: "password"
+      WEBPASSWORD: "80EvrFWrbJv86SdyrRSd5Ur9XrkYlEXHRAgh5D0Vay6Z7WavitPs2ufZxgsUbork"
       DNS1: 51.15.98.97
       DNS2: 94.16.114.254
       DNSSEC: "true"
