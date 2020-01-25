@@ -17,7 +17,7 @@ services:
       DNS1: 51.15.98.97
       DNS2: 94.16.114.254
       DNSSEC: "true"
-      ServerIP: 127.0.0.11
+      ServerIP: 192.168.254.11
       VIRTUAL_HOST: pi.hole
     volumes:
       - "./pihole/etc/:/etc/pihole/"
