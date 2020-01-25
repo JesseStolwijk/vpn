@@ -43,9 +43,9 @@ services:
     volumes:
       - ./openvpn-data/conf:/etc/openvpn
     restart: always
-    networks:
-      vpn-network:
-        ipv4_address: 192.168.254.12
+    # networks:
+    #   vpn-network:
+    #     ipv4_address: 192.168.254.12
 
 networks:
   vpn-network:
