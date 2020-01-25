@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker-compose run --rm openvpn easyrsa build-client-full $1 nopass 
-docker-compose run --rm openvpn ovpn_getclient $1 | cat
+docker run -v ./openvpn-data/conf --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full $1 nopass
+docker run -v ./openvpn-data/conf --log-driver=none --rm openvpn ovpn_getclient $1 | cat
