@@ -49,4 +49,4 @@ services:
 
 networks:
   vpn-network:
-  external: true
+    external: true
