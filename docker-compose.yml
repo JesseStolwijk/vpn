@@ -30,7 +30,8 @@ services:
     restart: always
 
   openvpn:
-    depends_on: pihole
+    depends_on:
+      - pihole
     cap_add:
       - NET_ADMIN
     container_name: openvpn
