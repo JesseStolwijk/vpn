@@ -1,0 +1,41 @@
+version: "3"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+    environment:
+      TZ: "Etc/GMT"
+      WEBPASSWORD: "password"
+      DNS1: 51.15.98.97
+      DNS2: 94.16.114.254
+      DNSSEC: "true"
+      ServerIP: 127.0.0.11
+      VIRTUAL_HOST: pi.hole
+    volumes:
+      - "./pihole/etc/:/etc/pihole/"
+      - "./pihole/etc/dnsmasq.d/:/etc/dnsmasq.d/"
+    dns:
+      - 127.0.0.1
+      - 51.15.98.97
+    cap_add:
+      - NET_ADMIN
+    restart: always
+
+  openvpn:
+    cap_add:
+      - NET_ADMIN
+    container_name: openvpn
+    image: kylemanna/openvpn
+    ports:
+      - "1194:1194/udp"
+    volumes:
+      - ./openvpn-data/conf:/etc/openvpn
+    restart: always
