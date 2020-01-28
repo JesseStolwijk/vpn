@@ -6,8 +6,8 @@ services:
     container_name: unbound
     image: mvance/unbound:latest
     ports:
-      - "53:5353/tcp"
-      - "53:5353/udp"
+      - "5353:53/tcp"
+      - "5353:53/udp"
     volumes:
       - "./volumes/unbound:/opt/unbound/etc/unbound/"
       - "./unbound-configuration/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro"
@@ -38,7 +38,9 @@ services:
     volumes:
       - "./pihole/etc/:/etc/pihole/"
       - "./pihole/etc/dnsmasq.d/:/etc/dnsmasq.d/"
-    dns: 127.0.0.1
+    dns:
+      - 127.0.0.1
+      - 192.168.254.13:5353
     cap_add:
       - NET_ADMIN
     restart: always
