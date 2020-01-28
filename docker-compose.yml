@@ -11,9 +11,9 @@ services:
     volumes:
       - "./unbound:/opt/unbound/etc/unbound/"
     restart: unless-stopped
-  networks:
-    vpn-network:
-      ipv4_address: 192.168.254.13
+    networks:
+      vpn-network:
+        ipv4_address: 192.168.254.13
 
   pihole:
     container_name: pihole
